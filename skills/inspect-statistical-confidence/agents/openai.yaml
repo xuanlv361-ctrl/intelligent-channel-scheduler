@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inspect Statistical Confidence"
+  short_description: "Inspect confidence snapshots safely"
+  default_prompt: "Use $inspect-statistical-confidence to inspect local confidence evidence."

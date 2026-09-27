@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "formal_agent_skill_result_v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["invocation_id", "skill_id", "status", "data", "uncertainty", "provenance", "limitations", "audit_id", "network_called"],
+  "properties": {
+    "invocation_id": {"type": "string"},
+    "skill_id": {"type": "string"},
+    "status": {"enum": ["success", "blocked", "unavailable"]},
+    "data": {},
+    "uncertainty": {"enum": ["known", "unknown", "stale", "conflicting", "insufficient_evidence"]},
+    "provenance": {"type": "object"},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "audit_id": {"type": ["string", "null"], "pattern": "^FAA-[0-9a-f-]{36}$"},
+    "network_called": {"const": false}
+  }
+}

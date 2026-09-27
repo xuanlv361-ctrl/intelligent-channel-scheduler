@@ -1,0 +1,8 @@
+export interface CostProvenance{source_type:string;label:string;is_genuine:boolean;sample_size:number;updated_at:string|null}
+export interface CostSummary{status:'budget_ok'|'near_limit'|'blocked'|'cost_anomaly'|'usage_mismatch'|'insufficient_data';currency:string|null;total_spend:string;budget_limit:string;remaining_budget:string;usage_percentage:string;request_count:number;maximum_total_attempts:number}
+export interface CostTrend{date:string;actual_cost:string;estimated_cost:string|null;budget_limit:string;request_count:number;source_type:string}
+export interface ChannelCost{channel_id:string|null;channel_name:string;total_cost:string;request_count:number;average_cost:string}
+export interface ResultCost{result:string;total_cost:string;request_count:number}
+export interface CostRequest{request_id:string|null;timestamp:string|null;channel_id:string|null;channel_name:string|null;requested_model:string|null;actual_model:string|null;profile:string|null;input_tokens:number|null;output_tokens:number|null;total_tokens:number|null;latency_ms:number|null;http_status:number|null;result:string;actual_cost:string|null;estimated_cost:string|null;cost_difference:string|null;source_type:string}
+export interface CostAnomaly{severity:string;type:string;request_id:string|null;evidence:string;reason:string;recommended_action:string;limitation:string}
+export interface CostBudgetResponse{contract_version:string;mode:'demo'|'uat';environment_id?:string;currency?:string|null;source_type:string;sample_size:number;provenance:CostProvenance;summary:CostSummary;trend:CostTrend[];by_channel:ChannelCost[];by_result:ResultCost[];highest_cost_requests:CostRequest[];anomalies:CostAnomaly[];limitations:string[]}

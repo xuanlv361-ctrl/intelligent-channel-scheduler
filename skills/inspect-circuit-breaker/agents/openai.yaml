@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inspect Circuit Breaker"
+  short_description: "Inspect circuit-breaker safety state"
+  default_prompt: "Use $inspect-circuit-breaker to inspect local circuit-breaker state."

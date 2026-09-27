@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://routing-quality-console.local/schemas/enterprise_identity_v1.schema.json",
+  "title": "Enterprise identity configuration v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "config_version",
+    "deployment_mode",
+    "development_identity_enabled",
+    "default_development_tenant_id",
+    "default_development_workspace_id",
+    "oidc",
+    "external_secret_manager_status"
+  ],
+  "properties": {
+    "config_version": {"const": "enterprise_identity_v1"},
+    "deployment_mode": {"enum": ["development", "lan", "production"]},
+    "development_identity_enabled": {"type": "boolean"},
+    "default_development_tenant_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "default_development_workspace_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "external_secret_manager_status": {"enum": ["pending_external_configuration", "configured"]},
+    "oidc": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "issuer", "audience", "client_id", "jwks_uri", "allowed_algorithms",
+        "clock_skew_seconds", "required_claims", "role_claim", "tenant_claim",
+        "workspace_claim", "status"
+      ],
+      "properties": {
+        "issuer": {"type": ["string", "null"]},
+        "audience": {"type": ["string", "null"]},
+        "client_id": {"type": ["string", "null"]},
+        "jwks_uri": {"type": ["string", "null"]},
+        "allowed_algorithms": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": ["RS256", "RS384", "RS512", "ES256", "ES384", "ES512"]}
+        },
+        "clock_skew_seconds": {"type": "integer", "minimum": 0, "maximum": 300},
+        "required_claims": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "role_claim": {"type": "string", "minLength": 1},
+        "tenant_claim": {"type": "string", "minLength": 1},
+        "workspace_claim": {"type": "string", "minLength": 1},
+        "status": {"enum": ["pending_external_configuration", "configured"]}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"deployment_mode": {"const": "production"}}},
+      "then": {"properties": {"development_identity_enabled": {"const": false}}}
+    }
+  ]
+}

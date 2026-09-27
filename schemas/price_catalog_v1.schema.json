@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:intelligent-channel-scheduler:price-catalog:v1",
+  "title": "Price catalog v1 transport payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "records"],
+  "properties": {
+    "schema_version": {"const": "price_catalog_v1"},
+    "records": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "environment_id", "model_id", "channel_id", "currency",
+          "input_unit_price", "output_unit_price", "billing_unit",
+          "effective_from", "effective_until"
+        ],
+        "properties": {
+          "environment_id": {"type": "string", "minLength": 1, "maxLength": 128},
+          "model_id": {"type": "string", "minLength": 1, "maxLength": 256},
+          "channel_id": {"type": "string", "minLength": 1, "maxLength": 256},
+          "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+          "input_unit_price": {"type": "string", "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"},
+          "cached_input_unit_price": {"type": ["string", "null"], "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"},
+          "output_unit_price": {"type": "string", "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$"},
+          "billing_unit": {"enum": ["per_1m_tokens"]},
+          "effective_from": {"type": "string", "format": "date-time"},
+          "effective_until": {"type": ["string", "null"], "format": "date-time"}
+        }
+      }
+    }
+  }
+}

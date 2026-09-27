@@ -1,0 +1,4 @@
+interface:
+  display_name: "Explain Scheduler Decision"
+  short_description: "Explain a persisted routing decision"
+  default_prompt: "Use $explain-scheduler-decision to explain a local routing decision."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inspect Sticky Routing"
+  short_description: "Inspect sticky-routing governance state"
+  default_prompt: "Use $inspect-sticky-routing to inspect local sticky-routing state."

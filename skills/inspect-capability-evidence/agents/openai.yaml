@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inspect Capability Evidence"
+  short_description: "Inspect verified capability evidence"
+  default_prompt: "Use $inspect-capability-evidence to inspect local capability evidence."

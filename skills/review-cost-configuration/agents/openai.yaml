@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Cost Configuration"
+  short_description: "Review local cost and config controls"
+  default_prompt: "Use $review-cost-configuration to review local cost and configuration controls."

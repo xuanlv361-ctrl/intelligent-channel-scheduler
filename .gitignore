@@ -1,0 +1,96 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+!web/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+storage_state*.json
+cookies*.json
+*.dpapi
+session_vault/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_tmp*/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Frontend
+web/node_modules/
+web/dist/
+web/coverage/
+web/test-results/
+web/playwright-report/
+web/.vite/
+*.tsbuildinfo
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Runtime databases and logs
+*.sqlite
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+*.db
+*.log
+
+# Local collector runtime
+data/uat_browser_collector_checkpoint.json
+evidence/uat_browser_collector/
+playwright/.auth/
+.playwright/
+playwright-profile*/
+browser-profile*/
+browser_profile*/
+user-data-dir*/
+browser_session*.json
+persistent_session*.json
+
+# Raw UAT response evidence and transient live observations
+evidence/unified_uat_v3/
+evidence/**/response_body.txt
+evidence/**/response_sse.txt
+unredacted*
+output/backups/
+output/week2_completion_backup_*/
+output/live_observation.json
+output/live_request_records.csv
+output/uat_browser_collection_preview.json
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Important: data/, output/, and evidence/ are not ignored wholesale.
+# Their committed fixtures and protected evidence require explicit review.
+
+# Local test-runner caches and transient reports. These are reproducible and
+# can contain machine-specific paths or runtime traces, so they are never part
+# of the public source release.
+.pytest-*/
+.pytest_*/
+.test-tmp/
+.npm-cache/
+.playwright-cli/
+.playwright-local/
+output/pytest-*/
+output/.pytest_cache*/
+test-results/
+*.sqlite3.*
+*.pid

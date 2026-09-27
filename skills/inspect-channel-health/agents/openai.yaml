@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inspect Channel Health"
+  short_description: "Inspect bounded channel health evidence"
+  default_prompt: "Use $inspect-channel-health to inspect local channel health evidence."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inspect Exploration Governance"
+  short_description: "Inspect exploration stops and budgets"
+  default_prompt: "Use $inspect-exploration-governance to inspect local exploration governance."
