@@ -4,7 +4,7 @@ An offline-first orchestration platform for routing language-model workloads acr
 
 > Portfolio note: this repository demonstrates engineering architecture and deterministic offline workflows. Included metrics and fixtures are synthetic or sanitised unless explicitly labelled. It does not claim production benchmark performance, and real API execution is disabled by default.
 
-![Routing Quality Console overview](docs/screenshots/final_acceptance/overview-desktop.png)
+> The public source release focuses on code, configuration, and reproducible local workflows. It intentionally excludes screenshots and raw UAT artefacts.
 
 ## Why this project
 
